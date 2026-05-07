@@ -1,0 +1,48 @@
+body{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        background-image: url(360_F_362053188_oQ0WRHCFkIY4QlXS1S5d1i9bpYup67ll.jpg);
+        background-size: cover;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+h1{
+        color: goldenrod;
+        font-size: 70px;
+}
+
+p{
+        color: white;
+        font-size: 50px;
+}
+
+button{
+        height: 70px;
+        width: 180px;
+        font-weight: bolder;
+        font-size: 19px;
+        border-radius: 8px;
+        border: solid 1px;
+        background-color: goldenrod;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        transition: all 0.9s;
+}
+
+button:active{
+
+        background-color: rgb(170, 131, 30);
+        transform: scale(1.1);
+}
