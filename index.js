@@ -26,79 +26,86 @@ function getrolldice() {
                 return 11
         } else if (randnum > 10) {
                 return 10
-        }
-        else {
+        } else {
                 return randnum
         }
 }
 
-if (started === false) {
+function start() {
 
-        function start() {
-                isAlive = true
-                let started = true
-                let firstcard = getrolldice()
-                let secondcard = getrolldice()
-
-                cards.push(firstcard, secondcard)
-
-                // ALWAYS calculate from ALL cards
-                result = 0
-                for (let i = 0; i < cards.length; i++) {
-                        result += cards[i]
-                }
-
-                if (result === 21) {
-
-                        message = "You've got Blackjack!! 🥳"
-                        hasBlackJak = true
-
-                } else if (result < 21) {
-
-                        message = "Do you wanna draw a new card? 😅"
-
-                } else {
-
-                        message = "Sorry, you are out of the game! 😭"
-                        isAlive = false
-                }
-
-                messageEl.textContent = message
-                sumEl.textContent = "Sum: " + result
-
-                cardsEl.textContent = "Cards: "
-                for (let i = 0; i < cards.length; i++) {
-                        cardsEl.textContent += cards[i] + " "
-                }
-
-
-
-
+        // stop function if game already started
+        if (started === true) {
+                return
         }
 
+        // lock the start button
+        started = true
+
+        isAlive = true
+
+        let firstcard = getrolldice()
+        let secondcard = getrolldice()
+
+        cards.push(firstcard, secondcard)
+
+        // calculate total from all cards
+        result = 0
+
+        for (let i = 0; i < cards.length; i++) {
+                result += cards[i]
+        }
+
+        if (result === 21) {
+
+                message = "You've got Blackjack!! 🥳"
+                hasBlackJak = true
+
+        } else if (result < 21) {
+
+                message = "Do you wanna draw a new card? 😅"
+
+        } else {
+
+                message = "Sorry, you are out of the game! 😭"
+                isAlive = false
+        }
+
+        messageEl.textContent = message
+        sumEl.textContent = "Sum: " + result
+
+        cardsEl.textContent = "Cards: "
+
+        for (let i = 0; i < cards.length; i++) {
+                cardsEl.textContent += cards[i] + " "
+        }
 }
-
-
 
 function newcard() {
 
         if (isAlive === true && hasBlackJak === false) {
 
                 let card = getrolldice()
+
                 cards.push(card)
 
-                // recalculate sum from all cards
+                // recalculate total from all cards
                 result = 0
+
                 for (let i = 0; i < cards.length; i++) {
                         result += cards[i]
                 }
 
                 if (result === 21) {
+
                         message = "You've got Blackjack!! 🥳"
                         hasBlackJak = true
+
                 } else if (result < 21) {
+
                         message = "Do you wanna draw a new card? 😅"
+
                 } else {
+
                         message = "Sorry, you are out of the game! 😭"
                         isAlive = false
                 }
@@ -106,6 +113,7 @@ function newcard() {
                 sumEl.textContent = "Sum: " + result
 
                 cardsEl.textContent = "Cards: "
+
                 for (let i = 0; i < cards.length; i++) {
                         cardsEl.textContent += cards[i] + " "
                 }
