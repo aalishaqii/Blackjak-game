@@ -4,6 +4,7 @@ let message = ""
 let cards = []
 let sum = 0
 let hasBlackJak = false
+let started = false
 
 let player = {
         name: "abdulkarim",
@@ -31,8 +32,11 @@ function getrolldice() {
         }
 }
 
-function start() {
+if (started === false) {
+
+        function start() {
                 isAlive = true
+                let started = true
                 let firstcard = getrolldice()
                 let secondcard = getrolldice()
 
@@ -70,7 +74,11 @@ function start() {
 
 
 
+        }
+
 }
+
+
 
 function newcard() {
 
